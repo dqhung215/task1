@@ -1,0 +1,14 @@
+<?php 
+$this->title = "Delete User";
+$this->headTitle($this->title);
+?>
+<p>Are you sure that you want to delete 
+  '<?php echo $this->escape($this->GPS['nickname']); ?>'   
+</p>
+<form action="<?php echo $this->url(array('action'=>'delete')); ?>" method="post">
+<div>
+  <input type="hidden" name="id" value="<?php echo $this->GPS['id']; ?>" />
+  <input type="submit" name="del" value="Yes" />
+  <input type="submit" name="del" value="No" />
+</div>
+</form>

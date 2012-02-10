@@ -1,0 +1,22 @@
+<?php         
+$this->title = "Users Nearby Results";
+$this->headTitle($this->title);
+?>
+
+<table>
+<tr>
+    <th>Nickname</th>
+    <th>Distance (meters)</th>
+    <th>&nbsp;</th>
+</tr>
+<?php foreach($this->GPS as $gps) : ?>
+<tr>  
+    <td><?php echo $this->escape($gps->nickname);?></td>
+    <td><?php echo $this->escape($gps->longtitude);?></td>
+    <td>       
+        <a href="<?php echo $this->url(array('controller'=>'index', 
+            'action'=>'delete', 'id'=>$gps->id));?>">Delete</a>
+    </td>
+</tr>
+<?php endforeach; ?>
+</table>

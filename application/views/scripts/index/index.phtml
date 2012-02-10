@@ -1,0 +1,35 @@
+<?php         
+$this->title = "List Some Users";
+$this->headTitle($this->title);
+?>
+<a href="<?php echo $this->url(array('controller'=>'index', 
+        'action'=>'addall'));?>">Add 10000 new random users</a>
+<a href="<?php echo $this->url(array('controller'=>'index', 
+        'action'=>'add'));?>">Add new users</a>
+<a href="<?php echo $this->url(array('controller'=>'index', 
+        'action'=>'getusernearby'));?>">Get Users Nearby</a>
+<table>
+<tr>
+    <th>ID</th>
+    <th>Nickname</th>
+    <th>Age</th>
+    <th>Latitude</th>
+    <th>Longtitude</th>
+    <th>&nbsp;</th>
+</tr>
+<?php foreach($this->GPS as $gps) : ?>
+<tr>
+    <td><?php echo $this->escape($gps->id);?></td>
+    <td><?php echo $this->escape($gps->nickname);?></td>
+    <td><?php echo $this->escape($gps->age);?></td>
+    <td><?php echo $this->escape($gps->latitude);?></td>
+    <td><?php echo $this->escape($gps->longtitude);?></td>
+    <td>
+        <a href="<?php echo $this->url(array('controller'=>'index', 
+            'action'=>'edit', 'id'=>$gps->id));?>">Edit</a>
+        <a href="<?php echo $this->url(array('controller'=>'index', 
+            'action'=>'delete', 'id'=>$gps->id));?>">Delete</a>
+    </td>
+</tr>
+<?php endforeach; ?>
+</table>
